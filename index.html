@@ -1,167 +1,382 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Surprise For You 💗</title>
+<title>Untuk Yana Sayang ❤️</title>
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   min-height: 100vh;
+  padding: 25px 16px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow-x: hidden;
+  justify-content: center;
   font-family: "Trebuchet MS", sans-serif;
-  background: linear-gradient(135deg, #ffe0ec, #fff1f5, #fbd5ff);
-  color: #87445f;
+  background: linear-gradient(135deg, #ffe1eb, #fff4f7, #f9dcff);
+  color: #88445f;
   text-align: center;
-  padding: 22px;
+  overflow-x: hidden;
 }
 
 .card {
-  width: 100%;
-  max-width: 390px;
-  padding: 30px 22px;
-  border: 2px solid white;
-  border-radius: 28px;
-  background: rgba(255,255,255,0.78);
-  box-shadow: 0 12px 40px #d97da733;
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 410px;
+  padding: 28px 22px;
+  background: rgba(255,255,255,0.86);
+  border: 2px solid white;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px #d97da733;
 }
 
 .heart {
-  font-size: 65px;
-  animation: beat 1s infinite;
+  font-size: 68px;
+  animation: heartbeat 1.2s infinite;
 }
 
-@keyframes beat {
-  50% { transform: scale(1.16); }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
-h1 { font-size: 29px; margin: 12px 0; }
-p { line-height: 1.8; }
+.tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #cc7597;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 15px 0;
+  line-height: 1.3;
+}
+
+p {
+  line-height: 1.85;
+}
+
+.intro {
+  font-size: 15px;
+}
 
 button {
+  display: inline-block;
   border: none;
   border-radius: 30px;
   padding: 14px 22px;
-  margin-top: 12px;
-  background: #f080a8;
+  margin-top: 14px;
+  background: #e982a8;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 5px 12px #e88aab44;
+  box-shadow: 0 5px 14px #e88aab44;
 }
 
-button:active { transform: scale(.96); }
+button:active {
+  transform: scale(0.96);
+}
 
-#letter { display: none; }
-.note {
-  background: #fff4f7;
-  border-radius: 18px;
-  padding: 17px;
-  margin-top: 18px;
+#letter {
+  display: none;
+  margin-top: 24px;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter-paper {
+  background: #fff7fa;
+  border: 1px solid #f8d7e3;
+  border-radius: 20px;
+  padding: 22px 17px;
   text-align: left;
+}
+
+.letter-paper h2 {
+  text-align: center;
+  color: #c65f89;
+  font-size: 23px;
+}
+
+.letter-paper p {
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.signature {
+  text-align: right;
+  color: #c65f89;
+  font-weight: bold;
+}
+
+#finalMessage {
+  display: none;
+  margin-top: 18px;
+  padding: 18px 12px;
+  background: #fff0f5;
+  border-radius: 18px;
+  animation: appear 0.8s ease;
+}
+
+.small {
+  font-size: 12px;
+  color: #bd7d97;
+  margin-top: 24px;
 }
 
 .floating {
   position: fixed;
-  bottom: -40px;
-  animation: rise 7s linear forwards;
-  pointer-events: none;
+  bottom: -45px;
   z-index: 1;
+  pointer-events: none;
+  animation: floatUp 7s linear forwards;
 }
 
-@keyframes rise {
-  to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<div class="card">
+<main class="card">
+
   <div class="heart">💗</div>
-  <p>HEY, MY FAVOURITE PERSON!</p>
-  <h1>A Little Surprise For You 🎀</h1>
-  <p>
-    Someone has a little message for you...
-    and that someone is me! 🥹
+
+  <p class="tag">A LITTLE SURPRISE FOR YOU</p>
+
+  <h1>Untuk Yana Sayang 🌷</h1>
+
+  <p class="intro">
+    Ada sesuatu yang Haziq nak sampaikan
+    dari hati yang paling dalam...
+    <br><br>
+    Yana sudi baca tak? 🥹
   </p>
 
-  <button id="openBtn" onclick="openLetter()">
-    Open My Surprise 💌
+  <button id="openButton" onclick="openLetter()">
+    Buka surat daripada Haziq 💌
   </button>
 
-  <div id="letter">
-    <div class="note">
-      <h2>Dear My Love, 💕</h2>
+  <section id="letter">
+
+    <div class="letter-paper">
+
+      <h2>Untuk Yana Sayang ❤️</h2>
+
       <p>
-        I just want you to know how special you are to me.
-        You make my ordinary days feel more beautiful,
-        and your smile is one of my favourite things in the world.
+        Assalamualaikum, sayang.
       </p>
+
       <p>
-        Thank you for being you. I may not always have
-        the perfect words, but I hope I can keep giving
-        you reasons to smile.
+        Haziq tak tahu macam mana nak mulakan surat
+        ni, sebab ada banyak sangat perkara yang
+        Haziq nak Yana tahu. Kadang-kadang, apa yang
+        ada dalam hati ni susah nak diluahkan dengan
+        kata-kata. Tapi hari ni, Haziq nak cuba.
       </p>
+
       <p>
-        No special occasion is needed to remind you
-        that you mean so much to me. ❤️
+        Yana, terima kasih sebab hadir dalam hidup
+        Haziq. Terima kasih sebab menjadi seseorang
+        yang sangat bermakna untuk Haziq. Mungkin
+        bagi Yana, ada perkara kecil yang Yana buat
+        setiap hari, tetapi bagi Haziq, perkara kecil
+        itulah yang kadang-kadang mampu menceriakan
+        satu hari yang terasa berat.
       </p>
-      <p style="text-align:right">
-        With lots of love,<br>
-        Your Favourite Person 🧸
+
+      <p>
+        Haziq tak janji yang Haziq akan sentiasa
+        sempurna. Haziq pun masih belajar untuk
+        menjadi seseorang yang lebih baik. Akan ada
+        masanya Haziq tersilap kata, tersalah faham,
+        atau tak pandai menunjukkan apa yang Haziq
+        rasa. Tapi satu perkara yang Haziq harap
+        Yana tak pernah lupa ialah, perasaan Haziq
+        terhadap Yana sangat ikhlas.
+      </p>
+
+      <p>
+        Haziq nak Yana rasa dihargai, bukan hanya
+        ketika semuanya indah, tetapi juga ketika
+        Yana penat, sedih, risau atau rasa macam
+        dunia ni terlalu berat. Haziq mungkin tak
+        sentiasa tahu cara terbaik untuk membantu,
+        tetapi Haziq nak terus belajar memahami Yana
+        dan mendengar apa yang Yana rasa.
+      </p>
+
+      <p>
+        Kalau suatu hari nanti Yana rasa tak cukup
+        baik, Haziq harap Yana ingat bahawa Yana tak
+        perlu menjadi sempurna untuk disayangi.
+        Yana berhak untuk berehat, melakukan
+        kesilapan dan menjadi diri sendiri.
+        Haziq sayang Yana bukan kerana Yana perlu
+        menjadi seseorang yang sempurna, tetapi
+        kerana Yana ialah Yana.
+      </p>
+
+      <p>
+        Terima kasih untuk setiap senyuman, setiap
+        cerita, setiap masa yang kita luangkan
+        bersama dan setiap kenangan yang kita cipta.
+        Haziq hargai semuanya, termasuk perkara
+        sederhana yang mungkin kita tak sedar akan
+        menjadi kenangan berharga suatu hari nanti.
+      </p>
+
+      <p>
+        Haziq tak tahu apa yang menanti kita pada
+        masa hadapan. Tapi selagi kita masih diberi
+        peluang, Haziq nak terus mengenali Yana,
+        memahami Yana dan membina lebih banyak
+        kenangan yang indah bersama-sama.
+      </p>
+
+      <p>
+        Akhir sekali, Yana Sayang, kalau ada satu
+        perkara yang Haziq nak Yana ingat daripada
+        surat ni, ingatlah bahawa kehadiran Yana
+        membawa makna yang besar dalam hidup Haziq.
+        Terima kasih kerana menjadi sebahagian
+        daripada cerita hidup Haziq. ❤️
+      </p>
+
+      <p>
+        Haziq sayang Yana, lebih daripada apa yang
+        Haziq mampu ungkapkan dengan kata-kata.
+      </p>
+
+      <p class="signature">
+        Dengan penuh kasih sayang,<br>
+        Haziq, untuk Yana Sayang. 💗
+      </p>
+
+    </div>
+
+    <h2 style="margin-top:28px">
+      Satu soalan untuk Yana 🥺
+    </h2>
+
+    <p>
+      Yana tahu tak betapa istimewanya Yana
+      dalam hati Haziq?
+    </p>
+
+    <button onclick="showFinalMessage()">
+      Nak tahu 💖
+    </button>
+
+    <div id="finalMessage">
+      <div style="font-size:45px">💗🧸💗</div>
+
+      <h2>Yana Sayang...</h2>
+
+      <p>
+        Kalau Haziq boleh pilih sekali lagi,
+        Haziq tetap akan bersyukur kerana
+        dipertemukan dengan Yana.
+      </p>
+
+      <p>
+        Semoga kita sentiasa diberi hati yang
+        sabar, kasih sayang yang ikhlas dan
+        kekuatan untuk saling memahami.
+      </p>
+
+      <p>
+        Terima kasih sebab menjadi Yana.
+        Haziq sayang Yana. ❤️
+      </p>
+
+      <p style="font-size:25px">
+        ♡ ∞ ♡
       </p>
     </div>
 
-    <h2>One more thing... 🥺</h2>
-    <p>Do you know how much I love you?</p>
-    <button onclick="loveClick()">Tell me! 💖</button>
-    <p id="answer" style="display:none">
-      INFINITY TIMES MORE THAN YOU KNOW! 💗🥹💗
-    </p>
-  </div>
-</div>
+  </section>
+
+  <p class="small">
+    Dibuat dengan sepenuh hati oleh Haziq
+    khas untuk Yana Sayang 🌸
+  </p>
+
+</main>
 
 <script>
 function openLetter() {
   document.getElementById("letter").style.display = "block";
-  document.getElementById("openBtn").style.display = "none";
+  document.getElementById("openButton").style.display = "none";
+
   document.getElementById("letter").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  for (let i = 0; i < 18; i++) {
+    makeHeart();
+  }
+}
+
+function showFinalMessage() {
+  const message = document.getElementById("finalMessage");
+  message.style.display = "block";
+
+  message.scrollIntoView({
     behavior: "smooth",
     block: "nearest"
   });
-  for (let i = 0; i < 18; i++) makeHeart();
-}
 
-function loveClick() {
-  document.getElementById("answer").style.display = "block";
-  for (let i = 0; i < 25; i++) makeHeart();
+  for (let i = 0; i < 28; i++) {
+    makeHeart();
+  }
 }
 
 function makeHeart() {
   const heart = document.createElement("div");
+
   heart.className = "floating";
-  heart.textContent = ["💗","💕","💖","💘","🌸"][
-    Math.floor(Math.random() * 5)
+
+  const emojis = ["💗", "💕", "💖", "💘", "🌸"];
+  heart.textContent = emojis[
+    Math.floor(Math.random() * emojis.length)
   ];
+
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (18 + Math.random() * 24) + "px";
+  heart.style.fontSize = (18 + Math.random() * 22) + "px";
   heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 8000);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
 }
 
 setInterval(() => {
-  if (Math.random() > 0.5) makeHeart();
-}, 1200);
+  if (Math.random() > 0.4) {
+    makeHeart();
+  }
+}, 1500);
 </script>
 
 </body>
